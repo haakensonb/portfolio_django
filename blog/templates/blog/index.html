@@ -1,1 +1,4 @@
-Hi my dudes
+{% for post in latest_posts_list %}
+    <h2>{{ post.title }}</h2>
+    {{ post.body }}
+{% endfor %}
