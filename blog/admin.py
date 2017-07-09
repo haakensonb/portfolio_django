@@ -1,4 +1,7 @@
+from django.db import models
 from django.contrib import admin
+
+from markdownx.widgets import AdminMarkdownxWidget
 
 from .models import Post, Tag
 
@@ -8,6 +11,10 @@ class PostAdmin(admin.ModelAdmin):
     filter_horizontal = ('tags',)
     # Don't show author because it will be added by the save_model method
     exclude = ['author']
+
+    formfield_overrides = {
+        models.TextField: {'widget': AdminMarkdownxWidget}
+    }
 
     def save_model(self, request, obj, form, change):
         """
