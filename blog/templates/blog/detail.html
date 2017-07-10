@@ -9,6 +9,12 @@
     <div>
         {{ post.body|markdown }}
     </div>
+    <div>
+        {% for tag in tags %}
+            <p><a href="{% url 'blog:by_tag' tag %}">{{ tag }}</a></p>
+        {% endfor %}
+    </div>
+
     <hr>
 
 {% endblock content %}

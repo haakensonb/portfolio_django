@@ -1,7 +1,7 @@
 from django.shortcuts import render, get_object_or_404
 from django.utils import timezone
 
-from .models import Post
+from .models import Post, Tag
 
 
 def index(request):
@@ -19,5 +19,16 @@ def detail(request, post_id):
     Render an individual post that has a pub_date in the past
     """
     post = get_object_or_404(Post.objects.filter(pub_date__lte=timezone.now()), pk=post_id)
-    context = {'post': post}
+    tags = Post.objects.get(pk=post_id).tags.all()
+    context = {'post': post, 'tags': tags}
     return render(request, 'blog/detail.html', context)
+
+def by_tag(request, tag_word):
+    """
+    Render all the posts with specified tag
+    """
+    # Get queryset of Tag object with correct word
+    tag = Tag.objects.filter(word=tag_word)
+    posts = Post.objects.filter(tags__in=tag).order_by('-pub_date')
+    context = {'posts': posts, 'tag': tag}
+    return render(request, 'blog/by_tag.html', context)

@@ -4,7 +4,7 @@ from django.test import TestCase
 from django.utils import timezone
 from django.urls import reverse
 
-from .models import Post
+from .models import Post, Tag
 
 def create_post(title, days):
     """
@@ -14,6 +14,11 @@ def create_post(title, days):
     """
     time = timezone.now() + datetime.timedelta(days=days)
     return Post.objects.create(title=title, body='test', pub_date=time)
+
+
+def create_tag(tag_name):
+    return Tag.objects.create(word=tag_name)
+
 
 
 class PostIndexViewTests(TestCase):
@@ -75,6 +80,7 @@ class PostIndexViewTests(TestCase):
             ['<Post: past>', '<Post: still past>', '<Post: very past>']
         )
 
+
 class PostDetailViewTests(TestCase):
     def test_future_post(self):
         """
@@ -94,3 +100,58 @@ class PostDetailViewTests(TestCase):
         url = reverse('blog:detail', args=(past_post.id,))
         response = self.client.get(url)
         self.assertContains(response, past_post.title)
+
+    def test_no_tags(self):
+        """
+        Detail view won't show any tags if post doesn't have any
+        """
+        post = create_post('test', days=-5)
+        self.assertQuerysetEqual(post.tags.all(), [])
+
+    def test_show_tag(self):
+        """
+        Post detail view should show a tag if it has one
+        """
+        post = create_post('test', days=-5)
+        tag = create_tag('mytag')
+        post.tags.add(tag)
+        url = reverse('blog:detail', args=(post.id,))
+        response = self.client.get(url)
+        self.assertContains(response, tag.word)
+
+    def test_show_multiple_tags(self):
+        """
+        Post detail view should show multiple tags if post has them
+        """
+        post = create_post('test', days=-5)
+        tag_1 = create_tag('mytag')
+        post.tags.add(tag_1)
+        tag_2 = create_tag('othertag')
+        post.tags.add(tag_2)
+        url = reverse('blog:detail', args=(post.id,))
+        response = self.client.get(url)
+        self.assertQuerysetEqual(
+            list(post.tags.all()),
+            ['<Tag: mytag>', '<Tag: othertag>'])
+
+
+class TagBy_viewViewTests(TestCase):
+    def test_show_post_for_tag(self):
+        """
+        Show all the post that a tag is associated with
+
+        not finished, get tag is splitting word for some reason
+        think url is broken or need to create in different way for test
+        """
+        post = create_post('test', days=-8)
+        tag = create_tag('testing')
+        post.tags.add(tag)
+
+        get_tag = Tag.objects.filter(word='testing')
+        get_post = Post.objects.filter(tags__in=get_tag)
+
+        url = reverse('blog:by_tag', args=(tag.word))
+        self.assertQuerysetEqual(
+            get_post,
+            ['<Post: test>']
+        )
