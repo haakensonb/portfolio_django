@@ -1,0 +1,34 @@
+{% load bootstrap3 %}
+{% bootstrap_css %}
+
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Blog | Brandon Haakenson</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link href="https://fonts.googleapis.com/css?family=Droid+Sans|Lato" rel="stylesheet">
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+</head>
+<body>
+    
+    {% include "blog/nav.html" %}
+
+
+    <div class="container">
+        <div class="blog-header text-center">
+            <h1 class="blog-title">My Blog</h1>
+            <p class="blog-description">This is my dope coding blog</p>
+        </div>
+        {% block content %}
+            
+        {% endblock content %}
+    </div>
+    <script src="{% static 'js/jquery-3.2.1.js' %}"></script>
+    {% bootstrap_javascript %}
+    <script src="{% static 'js/index.js' %}"></script>
+</body>
+</html>

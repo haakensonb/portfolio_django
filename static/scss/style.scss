@@ -1,0 +1,302 @@
+body {
+    padding-top: 65px;
+}
+
+$blue: rgba(40, 75, 99, 1);;
+$blue-light: rgba(60, 110, 113, 1);
+$light: #ececec;
+$cream: rgba(217, 217, 217, 1);
+$background: rgba(255, 255, 255, 1);
+$background-dark: rgba(53, 53, 53, 1);
+$red: rgba(237, 106, 90, 1);
+$droid-sans: 'Droid Sans', sans-serif;
+$lato: 'Lato', sans-serif;
+
+@mixin fade-transition($time) {
+    -moz-transition: all $time ease-in;
+    -o-transition: all $time ease-in;
+    -webkit-transition: all $time ease-in;
+    transition: all $time ease-in;
+}
+
+html, body {
+    margin: 0;
+    height: 100%;
+    width: 100%;
+    // font-family: $droid-sans;
+}
+
+body {
+    // background-color: $light;
+    // color: $background-dark;
+    color: #555;
+}
+
+body.landing {
+    background-color: $background-dark;
+    color: $light;
+}
+
+.fill {
+    height: 100%;
+}
+
+@-webkit-keyframes fadeIn { from { opacity:0; } to { opacity:1; } }
+@-moz-keyframes fadeIn { from { opacity:0; } to { opacity:1; } }
+@keyframes fadeIn { from { opacity:0; } to { opacity:1; } }
+
+.fadeIn {
+    opacity:0;  /* make things invisible upon start */
+    -webkit-animation:fadeIn ease-in 1;  /* call our keyframe named fadeIn, use animattion ease-in and repeat it only 1 time */
+    -moz-animation:fadeIn ease-in 1;
+    animation:fadeIn ease-in 1;
+ 
+    -webkit-animation-fill-mode:forwards;  /* this makes sure that after animation is done we remain at the last keyframe value (opacity: 1)*/
+    -moz-animation-fill-mode:forwards;
+    animation-fill-mode:forwards;
+ 
+    -webkit-animation-duration:1s;
+    -moz-animation-duration:1s;
+    animation-duration:1s;
+}
+
+.fadeIn.fade-one {
+    -webkit-animation-delay: 0.7s;
+    -moz-animation-delay: 0.7s;
+    animation-delay: 0.7s;
+}
+
+.fadeIn.fade-two {
+    -webkit-animation-delay: 2s;
+    -moz-animation-delay:2s;
+    animation-delay: 2s;
+}
+
+.wrap {
+    min-height: 100%;
+    min-height: 100vh;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-flex-direction: row;
+    flex-direction: row;
+    -webkit-align-items: center;
+    align-items: center;
+    -webkit-justify-content: center;
+    justify-content: center;
+}
+
+.v-center {
+    display: -webkit-flex;
+    display: flex;
+    -webkit-flex-direction: row;
+    flex-direction: row;
+    -webkit-align-items: center;
+    align-items: center;
+    -webkit-justify-content: center;
+    justify-content: center;
+}
+
+h1, h3, .navbar{
+    font-family: $lato;
+}
+
+p {
+    font-size: 18px;
+}
+
+.about {
+    margin-bottom: 15px;
+}
+
+.rounded-img {
+    border-radius: 50%;
+    border: solid 10px $light;
+    @include fade-transition(.2s);
+}
+
+.rounded-img:hover {
+    border-color: $blue;
+}
+
+.underline {
+    text-decoration: underline;
+}
+
+#projects {
+    padding: 10px;
+    color: $background-dark;
+}
+
+#blog, #contact, #login, #create-post {
+    color: $background-dark;
+}
+
+#footer {
+    position: static;
+    margin-top: 10px;
+    bottom: 0;
+    min-width: 100%;
+    background-color: $background-dark;
+    color: $light;
+    font-size: 1em;
+    height: 100px;
+}
+
+#contact {
+    margin-bottom: 15px;
+    height: 100%;
+    input, textarea {
+        width: 90%;
+        margin: 15px;
+        padding: 5px;
+        font-size: 22px;
+        font-family: $droid-sans;
+        outline: none;
+        border: solid 5px #c9c9c9;
+        transition: border 0.3s;
+    }
+    
+    input:focus, textarea:focus {
+        border: solid 5px #969696;
+        outline: none;
+    }
+}
+
+#disqus_thread {
+    margin-top: 20px;
+}
+
+hr {
+    border-color: $background-dark;
+}
+
+.social {
+    padding: 10px;
+    margin: 0px 10px 0px 10px;
+    color: green;
+    cursor: pointer;
+    @include fade-transition(.2s);
+}
+
+.social:hover {
+    color: $red;
+}
+
+.fa-color:hover {
+    @include fade-transition(.2s);
+    color: $red;
+}
+
+.projects-link {
+    font-size: 20px;
+    border-radius: 5px;
+    padding: 10px;
+    margin: 0px 5px 0px 5px;
+    background-color: $blue;
+    color: $light;
+    @include fade-transition(.2s);
+}
+
+.projects-link:hover {
+    color: $blue;
+    background-color: $light;
+    text-decoration: none;
+}
+
+.src-link {
+    color: $background-dark;
+    background-color: transparent;
+    font-size: 20px;
+    padding: 5px;
+    border: solid 2px $blue;
+    border-radius: 5px;
+    @include fade-transition(.1s);
+}
+
+.src-link:hover {
+    color: $background-dark;
+    background-color: transparent;
+    border: solid 5px $blue;
+    text-decoration: none;
+}
+
+.src-link:active,
+.src-link:visited,
+.src-link:focus {
+    text-decoration: none;
+    color: $background-dark;
+}
+
+.submit {
+    font-size: 20px;
+}
+
+#flash-message {
+  bottom: 20px;
+  position: absolute;
+  right: 20px;
+  z-index: 10;
+  font-size: 20px;
+  animation: flash-message 10s forwards;
+}
+
+@keyframes flash-message {
+  0% {opacity: 1;}
+  50% {opacity: 1;}
+  100% {opacity: 0; display: none;}
+}
+
+.navbar-default {
+    background-color: $background-dark;
+    border: none;
+}
+
+
+.navbar-default .navbar-brand {
+    color: $light;
+    font-size: 24px;
+    @include fade-transition(.2s);
+}
+
+.navbar-default .navbar-brand:hover,
+.navbar-default .navbar-brand:focus {
+    color: $red;
+}
+
+.navbar-default .navbar-nav > li > a {
+    color: $light;
+    font-size: 20px;
+    @include fade-transition(.2s);
+}
+
+.navbar-default .navbar-nav > li > a:hover,
+.navbar-default .navbar-nav > li > a:focus {
+    color: $red;
+}
+
+.blog-post-meta {
+    margin-bottom: 20px;
+    color: #999;
+}
+
+.blog-post-title {
+    color: #333;
+}
+
+.blog-header {
+    padding-bottom: 20px;
+    color: #333;
+    font-family: $lato
+}
+
+.blog-title {
+    margin-top: 30px;
+    margin-bottom: 0;
+    font-size: 60px;
+    font-weight: normal;
+}
+
+.blog-description {
+    font-size: 20px;
+    color: #999;
+}

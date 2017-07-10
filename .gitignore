@@ -4,3 +4,4 @@ db.sqlite3
 settings.py
 log.md
 media
+.sass-cache/

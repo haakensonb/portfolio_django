@@ -1,0 +1,273 @@
+body {
+  padding-top: 65px; }
+
+html, body {
+  margin: 0;
+  height: 100%;
+  width: 100%; }
+
+body {
+  color: #555; }
+
+body.landing {
+  background-color: #353535;
+  color: #ececec; }
+
+.fill {
+  height: 100%; }
+
+@-webkit-keyframes fadeIn {
+  from {
+    opacity: 0; }
+  to {
+    opacity: 1; } }
+@-moz-keyframes fadeIn {
+  from {
+    opacity: 0; }
+  to {
+    opacity: 1; } }
+@keyframes fadeIn {
+  from {
+    opacity: 0; }
+  to {
+    opacity: 1; } }
+.fadeIn {
+  opacity: 0;
+  /* make things invisible upon start */
+  -webkit-animation: fadeIn ease-in 1;
+  /* call our keyframe named fadeIn, use animattion ease-in and repeat it only 1 time */
+  -moz-animation: fadeIn ease-in 1;
+  animation: fadeIn ease-in 1;
+  -webkit-animation-fill-mode: forwards;
+  /* this makes sure that after animation is done we remain at the last keyframe value (opacity: 1)*/
+  -moz-animation-fill-mode: forwards;
+  animation-fill-mode: forwards;
+  -webkit-animation-duration: 1s;
+  -moz-animation-duration: 1s;
+  animation-duration: 1s; }
+
+.fadeIn.fade-one {
+  -webkit-animation-delay: 0.7s;
+  -moz-animation-delay: 0.7s;
+  animation-delay: 0.7s; }
+
+.fadeIn.fade-two {
+  -webkit-animation-delay: 2s;
+  -moz-animation-delay: 2s;
+  animation-delay: 2s; }
+
+.wrap {
+  min-height: 100%;
+  min-height: 100vh;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-flex-direction: row;
+  flex-direction: row;
+  -webkit-align-items: center;
+  align-items: center;
+  -webkit-justify-content: center;
+  justify-content: center; }
+
+.v-center {
+  display: -webkit-flex;
+  display: flex;
+  -webkit-flex-direction: row;
+  flex-direction: row;
+  -webkit-align-items: center;
+  align-items: center;
+  -webkit-justify-content: center;
+  justify-content: center; }
+
+h1, h3, .navbar {
+  font-family: "Lato", sans-serif; }
+
+p {
+  font-size: 18px; }
+
+.about {
+  margin-bottom: 15px; }
+
+.rounded-img {
+  border-radius: 50%;
+  border: solid 10px #ececec;
+  -moz-transition: all 0.2s ease-in;
+  -o-transition: all 0.2s ease-in;
+  -webkit-transition: all 0.2s ease-in;
+  transition: all 0.2s ease-in; }
+
+.rounded-img:hover {
+  border-color: #284b63; }
+
+.underline {
+  text-decoration: underline; }
+
+#projects {
+  padding: 10px;
+  color: #353535; }
+
+#blog, #contact, #login, #create-post {
+  color: #353535; }
+
+#footer {
+  position: static;
+  margin-top: 10px;
+  bottom: 0;
+  min-width: 100%;
+  background-color: #353535;
+  color: #ececec;
+  font-size: 1em;
+  height: 100px; }
+
+#contact {
+  margin-bottom: 15px;
+  height: 100%; }
+  #contact input, #contact textarea {
+    width: 90%;
+    margin: 15px;
+    padding: 5px;
+    font-size: 22px;
+    font-family: "Droid Sans", sans-serif;
+    outline: none;
+    border: solid 5px #c9c9c9;
+    transition: border 0.3s; }
+  #contact input:focus, #contact textarea:focus {
+    border: solid 5px #969696;
+    outline: none; }
+
+#disqus_thread {
+  margin-top: 20px; }
+
+hr {
+  border-color: #353535; }
+
+.social {
+  padding: 10px;
+  margin: 0px 10px 0px 10px;
+  color: green;
+  cursor: pointer;
+  -moz-transition: all 0.2s ease-in;
+  -o-transition: all 0.2s ease-in;
+  -webkit-transition: all 0.2s ease-in;
+  transition: all 0.2s ease-in; }
+
+.social:hover {
+  color: #ed6a5a; }
+
+.fa-color:hover {
+  -moz-transition: all 0.2s ease-in;
+  -o-transition: all 0.2s ease-in;
+  -webkit-transition: all 0.2s ease-in;
+  transition: all 0.2s ease-in;
+  color: #ed6a5a; }
+
+.projects-link {
+  font-size: 20px;
+  border-radius: 5px;
+  padding: 10px;
+  margin: 0px 5px 0px 5px;
+  background-color: #284b63;
+  color: #ececec;
+  -moz-transition: all 0.2s ease-in;
+  -o-transition: all 0.2s ease-in;
+  -webkit-transition: all 0.2s ease-in;
+  transition: all 0.2s ease-in; }
+
+.projects-link:hover {
+  color: #284b63;
+  background-color: #ececec;
+  text-decoration: none; }
+
+.src-link {
+  color: #353535;
+  background-color: transparent;
+  font-size: 20px;
+  padding: 5px;
+  border: solid 2px #284b63;
+  border-radius: 5px;
+  -moz-transition: all 0.1s ease-in;
+  -o-transition: all 0.1s ease-in;
+  -webkit-transition: all 0.1s ease-in;
+  transition: all 0.1s ease-in; }
+
+.src-link:hover {
+  color: #353535;
+  background-color: transparent;
+  border: solid 5px #284b63;
+  text-decoration: none; }
+
+.src-link:active,
+.src-link:visited,
+.src-link:focus {
+  text-decoration: none;
+  color: #353535; }
+
+.submit {
+  font-size: 20px; }
+
+#flash-message {
+  bottom: 20px;
+  position: absolute;
+  right: 20px;
+  z-index: 10;
+  font-size: 20px;
+  animation: flash-message 10s forwards; }
+
+@keyframes flash-message {
+  0% {
+    opacity: 1; }
+  50% {
+    opacity: 1; }
+  100% {
+    opacity: 0;
+    display: none; } }
+.navbar-default {
+  background-color: #353535;
+  border: none; }
+
+.navbar-default .navbar-brand {
+  color: #ececec;
+  font-size: 24px;
+  -moz-transition: all 0.2s ease-in;
+  -o-transition: all 0.2s ease-in;
+  -webkit-transition: all 0.2s ease-in;
+  transition: all 0.2s ease-in; }
+
+.navbar-default .navbar-brand:hover,
+.navbar-default .navbar-brand:focus {
+  color: #ed6a5a; }
+
+.navbar-default .navbar-nav > li > a {
+  color: #ececec;
+  font-size: 20px;
+  -moz-transition: all 0.2s ease-in;
+  -o-transition: all 0.2s ease-in;
+  -webkit-transition: all 0.2s ease-in;
+  transition: all 0.2s ease-in; }
+
+.navbar-default .navbar-nav > li > a:hover,
+.navbar-default .navbar-nav > li > a:focus {
+  color: #ed6a5a; }
+
+.blog-post-meta {
+  margin-bottom: 20px;
+  color: #999; }
+
+.blog-post-title {
+  color: #333; }
+
+.blog-header {
+  padding-bottom: 20px;
+  color: #333;
+  font-family: "Lato", sans-serif; }
+
+.blog-title {
+  margin-top: 30px;
+  margin-bottom: 0;
+  font-size: 60px;
+  font-weight: normal; }
+
+.blog-description {
+  font-size: 20px;
+  color: #999; }
+
+/*# sourceMappingURL=style.css.map */
