@@ -80,6 +80,39 @@ class PostIndexViewTests(TestCase):
             ['<Post: past>', '<Post: still past>', '<Post: very past>']
         )
 
+    def test_no_tags(self):
+        """
+        Index view won't show any tags if post doesn't have any
+        """
+        post = create_post('test', days=-5)
+        self.assertQuerysetEqual(post.tags.all(), [])
+
+    def test_show_tag(self):
+        """
+        Index view should show a tag if it has one
+        """
+        post = create_post('test', days=-5)
+        tag = create_tag('mytag')
+        post.tags.add(tag)
+        url = reverse('blog:detail', args=(post.id,))
+        response = self.client.get(url)
+        self.assertContains(response, tag.word)
+
+    def test_show_multiple_tags(self):
+        """
+        Index view should show multiple tags if post has them
+        """
+        post = create_post('test', days=-5)
+        tag_1 = create_tag('mytag')
+        post.tags.add(tag_1)
+        tag_2 = create_tag('othertag')
+        post.tags.add(tag_2)
+        url = reverse('blog:detail', args=(post.id,))
+        response = self.client.get(url)
+        self.assertQuerysetEqual(
+            list(post.tags.all()),
+            ['<Tag: mytag>', '<Tag: othertag>'])
+
 
 class PostDetailViewTests(TestCase):
     def test_future_post(self):
@@ -136,22 +169,29 @@ class PostDetailViewTests(TestCase):
 
 
 class TagBy_viewViewTests(TestCase):
-    def test_show_post_for_tag(self):
+    def test_posts_for_tag(self):
         """
-        Show all the post that a tag is associated with
+        Show all the posts that a tag is associated with
 
-        not finished, get tag is splitting word for some reason
-        think url is broken or need to create in different way for test
         """
         post = create_post('test', days=-8)
         tag = create_tag('testing')
         post.tags.add(tag)
+        post_2 = create_post('othertest', days=-10)
+        post_2.tags.add(tag)
 
         get_tag = Tag.objects.filter(word='testing')
         get_post = Post.objects.filter(tags__in=get_tag)
 
-        url = reverse('blog:by_tag', args=(tag.word))
+        url = reverse('blog:by_tag', kwargs=({'tag_word': tag.word}))
+        response = self.client.get(url)
+        # Check to make sure queryset is correct
         self.assertQuerysetEqual(
-            get_post,
-            ['<Post: test>']
+            list(get_post),
+            ['<Post: test>', '<Post: othertest>']
         )
+        # Check to make sure posts are actually visible to user
+        self.assertContains(response, get_post.first().title)
+        self.assertContains(response, get_post.first().body)
+        self.assertContains(response, get_post.last().title)
+        self.assertContains(response, get_post.last().body)

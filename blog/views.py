@@ -19,15 +19,14 @@ def detail(request, post_id):
     Render an individual post that has a pub_date in the past
     """
     post = get_object_or_404(Post.objects.filter(pub_date__lte=timezone.now()), pk=post_id)
-    tags = Post.objects.get(pk=post_id).tags.all()
-    context = {'post': post, 'tags': tags}
+    context = {'post': post}
     return render(request, 'blog/detail.html', context)
 
 def by_tag(request, tag_word):
     """
     Render all the posts with specified tag
     """
-    # Get queryset of Tag object with correct word
+    # Get queryset of Tag object with correct word. Probably a better way to do this
     tag = Tag.objects.filter(word=tag_word)
     posts = Post.objects.filter(tags__in=tag).order_by('-pub_date')
     context = {'posts': posts, 'tag': tag}
