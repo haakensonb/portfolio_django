@@ -23,7 +23,7 @@ html, body {
     margin: 0;
     height: 100%;
     width: 100%;
-    font-family: $droid-sans;
+    // font-family: $droid-sans;
 }
 
 body {
@@ -125,7 +125,6 @@ p {
 #projects {
     padding: 10px;
     color: $background-dark;
-    background-color: $light;
 }
 
 #blog, #contact, #login, #create-post {

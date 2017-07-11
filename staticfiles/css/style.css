@@ -4,8 +4,7 @@ body {
 html, body {
   margin: 0;
   height: 100%;
-  width: 100%;
-  font-family: "Droid Sans", sans-serif; }
+  width: 100%; }
 
 body {
   color: #555; }
@@ -104,8 +103,7 @@ p {
 
 #projects {
   padding: 10px;
-  color: #353535;
-  background-color: #ececec; }
+  color: #353535; }
 
 #blog, #contact, #login, #create-post {
   color: #353535; }
