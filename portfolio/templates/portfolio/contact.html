@@ -1,0 +1,31 @@
+{% extends "portfolio/base.html" %}
+{% load bootstrap3 %}
+
+{# Load CSS and JavaScript #}
+{% bootstrap_css %}
+{% block content %}
+
+    
+    <section id="contact">
+        <div class="container">
+            <h1 class="text-center"><i class="fa fa-color fa-envelope" aria-hidden="true"></i> Contact</h1>
+            <div class="row">
+            <div class="col-md-2"></div>
+                <div class="col-md-8 text-center">
+                    
+                    <form action="" method="POST">
+                        {% csrf_token %}
+                        {% bootstrap_form form %}
+                        {% buttons %}
+                            <button type="submit" class="btn btn-primary">
+                                Submit
+                            </button>
+                        {% endbuttons %}
+                    </form>
+                </div>
+                <div class="col-md-2"></div>
+            </div>
+        </div>
+    </section>
+
+{% endblock content %}

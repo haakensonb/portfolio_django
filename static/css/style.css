@@ -121,6 +121,7 @@ p {
   height: 100px; }
 
 #contact {
+  background-color: #ececec;
   margin-bottom: 15px;
   height: 100%; }
   #contact input, #contact textarea {
