@@ -3,10 +3,7 @@
 
 {% block content %}
     <div class="col-sm-8">
-    {# tag is a queryset of one so we need a for loop to access the tag word #}
-    <h2>Browsing by the tag: {% for t in tag %}
-        {{ t.word }}
-    {% endfor %}</h2>
+    <h2>Browsing by archive date: {{ year }} {{ month }}</h2>
 
     {% for post in posts %}
         <div>
@@ -25,10 +22,12 @@
             <p><a href="{% url 'blog:by_tag' tag %}">{{ tag }}</a></p>
         {% endfor %}
         </div>
+
         <hr>
     {% endfor %}
     </div>
 
     {% include "blog/sidebar.html" %}
+
 
 {% endblock content %}

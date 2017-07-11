@@ -3,7 +3,7 @@
 
 {% block content %}
     
-
+<div class="col-sm-8">
 {% for post in latest_posts_list %}
     <div>
         <a href="{% url 'blog:detail' post.id %}"><h2 class="blog-post-title">{{ post.title }}</h2></a>
@@ -23,5 +23,8 @@
     </div>
     <hr>
 {% endfor %}
+</div>
+
+{% include "blog/sidebar.html" %}
 
 {% endblock content %}

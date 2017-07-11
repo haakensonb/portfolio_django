@@ -1,0 +1,19 @@
+<div class="col-sm-3 col-sm-offset-1 blog-sidebar">
+            <div class="sidebar-module">
+                <h4>About</h4>
+                <p>Blah blah blah blah</p>
+            </div>
+            <div class="sidebar-module">
+                <h4>Archives</h4>
+                {% regroup latest_posts_list by pub_date|date:"Y" as year_list %}
+                    {% for year in year_list %}
+                        
+                        {% regroup year.list by pub_date|date:"m" as month_list %}
+                            {% for month in month_list %}
+                                <a href="{% url 'blog:archives' year.grouper month.grouper %}">{{ year.grouper }} {{ month.grouper }}</a> <br>
+                            {% endfor %}
+
+                    {% endfor %}
+            </div>
+            <div class="sidebar-module"></div>
+        </div>

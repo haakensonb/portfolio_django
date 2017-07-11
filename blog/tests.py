@@ -195,3 +195,32 @@ class TagBy_viewViewTests(TestCase):
         self.assertContains(response, get_post.first().body)
         self.assertContains(response, get_post.last().title)
         self.assertContains(response, get_post.last().body)
+
+
+class PostArchivesViewTests(TestCase):
+    def test_posts_for_archive_date(self):
+        """
+        Show all the posts published in the month of the 
+        archive date
+        """
+        # Instead of days, create a post 2 months in the past
+        month = 2*365/12
+        post = create_post('good', -month)
+
+        post_2 = create_post('bad', -1)
+        posts = Post.objects.filter(
+            pub_date__year=post.pub_date.year,
+            pub_date__month=post.pub_date.month
+            )
+        self.assertQuerysetEqual(
+            posts,
+            ['<Post: good>']
+        )
+
+        url = reverse('blog:archives', kwargs=({
+            'year': post.pub_date.year,
+            'month': post.pub_date.month
+        }))
+        response = self.client.get(url)
+        self.assertContains(response, post.title)
+        self.assertContains(response, post.body)
