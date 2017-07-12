@@ -2,6 +2,8 @@ from django.core.mail import send_mail, BadHeaderError
 from django.shortcuts import render, redirect
 from django.http import HttpResponseRedirect, HttpResponse
 
+from django.contrib import messages
+
 from .forms import ContactForm
 
 
@@ -24,7 +26,9 @@ def contact(request):
                 send_mail('New Submission', message, email, ['admin@example.com'])
             except BadHeaderError:
                 return HttpResponse('Invalid header found')
-            return redirect('portfolio:success')
+
+            messages.add_message(request, messages.SUCCESS, 'Your message was sent! I\'ll get back to you shortly.', extra_tags='fade in')
+            return redirect('portfolio:contact')
 
     return render(request, 'portfolio/contact.html', {'form': form})
 

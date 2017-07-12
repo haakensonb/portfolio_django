@@ -12,12 +12,19 @@
             <div class="row">
             <div class="col-md-2"></div>
                 <div class="col-md-8 text-center">
-                    
+                    {% bootstrap_messages %}
                     <form action="" method="POST">
                         {% csrf_token %}
-                        {% bootstrap_form form %}
+
+                        {% for field in form %}
+                            <div>
+                                {{ field.errors }}
+                                {{ field }}
+                            </div>
+                        {% endfor %}
+
                         {% buttons %}
-                            <button type="submit" class="btn btn-primary">
+                            <button type="submit" class="btn btn-success submit">
                                 Submit
                             </button>
                         {% endbuttons %}
