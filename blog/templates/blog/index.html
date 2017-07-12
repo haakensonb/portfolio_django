@@ -5,6 +5,7 @@
     
 <div class="col-sm-8">
 {% for post in latest_posts_list %}
+<div>
     <div>
         <a href="{% url 'blog:detail' post.id %}"><h2 class="blog-post-title">{{ post.title }}</h2></a>
         <p class="blog-post-meta">{{ post.pub_date|date:"F j Y" }} By {{ post.author.first_name}}</p>
@@ -13,7 +14,7 @@
         {{ post.body|markdown|truncatewords:200 }}
 
         {% if post.body|wordcount >= 200 %}
-            <p><a href="{% url 'blog:detail' post.id %}">Read More</a></p>
+            <p><a class="btn btn-default" href="{% url 'blog:detail' post.id %}">Read More</a></p>
         {% endif %}
     </div>
     <div>
@@ -22,6 +23,7 @@
         {% endfor %}
     </div>
     <hr>
+</div>
 {% endfor %}
 </div>
 

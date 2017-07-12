@@ -1,7 +1,7 @@
 {% extends "blog/base.html" %}
 {% load markdown_deux_tags %}
 {% block content %}
-    
+<div>
     <div>
         <h2 class="blog-post-title">{{ post.title }}</h2>
         <p class="blog-post-meta">{{ post.pub_date|date:"F j Y" }} By {{ post.author.first_name}}</p>
@@ -17,6 +17,6 @@
     </div>
 
     <hr>
-
+</div>
 {% endblock content %}
 
