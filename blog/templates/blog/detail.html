@@ -11,9 +11,14 @@
     </div>
     
     <div>
+        <p>
+        {% if post.tags.all %}
+        <i class="fa fa-tags fa-color fa-lg" aria-hidden="true"></i>
+        {% endif %}
         {% for tag in post.tags.all %}
-            <p><a href="{% url 'blog:by_tag' tag %}">{{ tag }}</a></p>
+            <a class="tag" href="{% url 'blog:by_tag' tag %}">{{ tag }}</a>
         {% endfor %}
+        </p>
     </div>
 
     <hr>

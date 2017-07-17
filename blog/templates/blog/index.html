@@ -14,13 +14,18 @@
         {{ post.body|markdown|truncatewords:200 }}
 
         {% if post.body|wordcount >= 200 %}
-            <p><a class="btn btn-default" href="{% url 'blog:detail' post.id %}">Read More</a></p>
+            <p class="text-center"><a class="read-more" href="{% url 'blog:detail' post.id %}">Read More</a></p>
         {% endif %}
     </div>
     <div>
+        <p>
+        {% if post.tags.all %}
+        <i class="fa fa-tags fa-color fa-lg" aria-hidden="true"></i>
+        {% endif %}
         {% for tag in post.tags.all %}
-            <p><a href="{% url 'blog:by_tag' tag %}">{{ tag }}</a></p>
+            <a class="tag" href="{% url 'blog:by_tag' tag %}">{{ tag }}</a>
         {% endfor %}
+        </p>
     </div>
     <hr>
 </div>

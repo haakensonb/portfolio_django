@@ -1,8 +1,7 @@
 html, body {
   margin: 0;
   height: 100%;
-  width: 100%;
-  font-family: "Droid Sans", sans-serif; }
+  width: 100%; }
 
 body {
   padding-top: 65px;
@@ -280,5 +279,28 @@ hr {
 .link-no-style, .link-no-style:hover, .link-no-style:visited {
   color: inherit;
   text-decoration: none; }
+
+.tag, .tag:visited {
+  font-size: 16px;
+  background-color: #ddd;
+  border-radius: 2px;
+  margin: 3px;
+  border: none;
+  text-decoration: none;
+  color: #777;
+  font-weight: bold;
+  padding: 7px 13px;
+  -moz-transition: all 0.2s ease-in;
+  -o-transition: all 0.2s ease-in;
+  -webkit-transition: all 0.2s ease-in;
+  transition: all 0.2s ease-in; }
+
+.tag:hover {
+  background-color: #ed6a5a;
+  color: #ececec;
+  text-decoration: none; }
+
+.read-more {
+  font-size: 20px; }
 
 /*# sourceMappingURL=style.css.map */
