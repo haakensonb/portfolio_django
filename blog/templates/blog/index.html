@@ -4,7 +4,7 @@
 {% block content %}
     
 <div class="col-sm-8">
-{% for post in latest_posts_list %}
+{% for post in paginated_posts %}
 <div>
     <div>
         <a href="{% url 'blog:detail' post.id %}"><h2 class="blog-post-title">{{ post.title }}</h2></a>
@@ -30,6 +30,25 @@
     <hr>
 </div>
 {% endfor %}
+
+{% if  paginated_posts.paginator.num_pages > 1 %}
+<nav aria-label="Page navigation">
+    <ul class="pagination">
+        {% if paginated_posts.has_previous %}
+                <li><a href="?page={{ paginated_posts.previous_page_number }}">Prev</a></li>
+        {% endif %}
+        {% for page in paginated_posts.paginator.page_range %}
+            <li class="{% if paginated_posts.number == page  %}active{% endif %}"><a href="?page={{page }}">{{ page }}</a></li>
+        {% endfor %}
+
+        {% if paginated_posts.has_next %}
+            <li> <a href="?page={{ paginated_posts.next_page_number }}">Next</a></li>
+        {% endif %}
+    </ul>
+</nav>
+{% endif %}
+
+
 </div>
 
 {% include "blog/sidebar.html" %}
