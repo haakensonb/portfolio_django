@@ -23,5 +23,10 @@
 
     <hr>
 </div>
+
+{% load disqus_tags %}
+{% disqus_show_comments "brandonhaakenson-me" %}
+{% set_disqus_url object.get_absolute_url %}
+
 {% endblock content %}
 
