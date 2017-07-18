@@ -23,5 +23,5 @@ urlpatterns = [
     url(r'^', include('portfolio.urls')),
     url(r'^blog/', include('blog.urls')),
     url(r'^markdownx/', include('markdownx.urls')),
-    url(r'^admin/', admin.site.urls),
+    url(r'^elite/', admin.site.urls),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
