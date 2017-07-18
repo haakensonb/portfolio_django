@@ -1,6 +1,7 @@
 html, body {
   margin: 0;
-  width: 100%; }
+  width: 100%;
+  font-family: "Open Sans", sans-serif; }
 
 body {
   padding-top: 65px;
@@ -120,7 +121,7 @@ p {
     margin: 15px;
     padding: 5px;
     font-size: 22px;
-    font-family: "Droid Sans", sans-serif;
+    font-family: "Open Sans", sans-serif;
     outline: none;
     border: solid 5px #c9c9c9;
     transition: border 0.3s; }

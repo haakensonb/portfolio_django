@@ -5,7 +5,7 @@ $cream: rgba(217, 217, 217, 1);
 $background: rgba(255, 255, 255, 1);
 $background-dark: rgba(53, 53, 53, 1);
 $red: rgba(237, 106, 90, 1);
-$droid-sans: 'Droid Sans', sans-serif;
+$open: 'Open Sans', sans-serif;
 $lato: 'Lato', sans-serif;
 
 @mixin fade-transition($time) {
@@ -18,7 +18,7 @@ $lato: 'Lato', sans-serif;
 html, body {
     margin: 0;
     width: 100%;
-    // font-family: $droid-sans;
+    font-family: $open;
 }
 
 body {
@@ -140,7 +140,7 @@ p {
         margin: 15px;
         padding: 5px;
         font-size: 22px;
-        font-family: $droid-sans;
+        font-family: $open;
         outline: none;
         border: solid 5px #c9c9c9;
         transition: border 0.3s;
