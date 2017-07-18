@@ -1,6 +1,5 @@
 html, body {
   margin: 0;
-  height: 100%;
   width: 100%; }
 
 body {
@@ -10,9 +9,6 @@ body {
 body.landing {
   background-color: #353535;
   color: #ececec; }
-
-.fill {
-  height: 100%; }
 
 @-webkit-keyframes fadeIn {
   from {
@@ -76,7 +72,7 @@ body.landing {
   -webkit-justify-content: center;
   justify-content: center; }
 
-h1, h3, .navbar {
+h1, h2, h3, h4, .navbar {
   font-family: "Lato", sans-serif; }
 
 p {
@@ -104,7 +100,7 @@ p {
   color: #353535;
   background-color: #ececec; }
 
-#blog, #contact, #login, #create-post {
+#blog, #contact {
   color: #353535; }
 
 #footer {
