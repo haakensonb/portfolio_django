@@ -1,13 +1,11 @@
-body {
-  padding-top: 65px; }
-
 html, body {
   margin: 0;
   height: 100%;
   width: 100%; }
 
 body {
-  color: #555; }
+  padding-top: 65px;
+  background-color: #ececec; }
 
 body.landing {
   background-color: #353535;
@@ -103,7 +101,8 @@ p {
 
 #projects {
   padding: 10px;
-  color: #353535; }
+  color: #353535;
+  background-color: #ececec; }
 
 #blog, #contact, #login, #create-post {
   color: #353535; }
@@ -119,8 +118,7 @@ p {
   height: 100px; }
 
 #contact {
-  margin-bottom: 15px;
-  height: 100%; }
+  background-color: #ececec; }
   #contact input, #contact textarea {
     width: 90%;
     margin: 15px;
@@ -248,6 +246,9 @@ hr {
 .navbar-default .navbar-nav > li > a:focus {
   color: #ed6a5a; }
 
+.blog-bg {
+  background-color: #fff; }
+
 .blog-post-meta {
   margin-bottom: 20px;
   color: #999; }
@@ -269,5 +270,48 @@ hr {
 .blog-description {
   font-size: 20px;
   color: #999; }
+
+.blog-content img {
+  max-width: 100%;
+  display: block;
+  margin: 0 auto; }
+
+.blog-sidebar {
+  margin-bottom: 15px; }
+
+.sidebar-module-inset {
+  padding: 15px;
+  background-color: #f5f5f5;
+  border-radius: 4px; }
+
+.link-no-style, .link-no-style:hover, .link-no-style:visited {
+  color: inherit;
+  text-decoration: none; }
+
+.tag, .tag:visited {
+  font-size: 16px;
+  background-color: #ddd;
+  border-radius: 2px;
+  margin: 3px;
+  border: none;
+  text-decoration: none;
+  color: #777;
+  font-weight: bold;
+  padding: 7px 13px;
+  -moz-transition: all 0.2s ease-in;
+  -o-transition: all 0.2s ease-in;
+  -webkit-transition: all 0.2s ease-in;
+  transition: all 0.2s ease-in; }
+
+.tag:hover {
+  background-color: #ed6a5a;
+  color: #ececec;
+  text-decoration: none; }
+
+.read-more {
+  font-size: 20px; }
+
+#disqus_thread, .tags-container {
+  margin-top: 20px; }
 
 /*# sourceMappingURL=style.css.map */

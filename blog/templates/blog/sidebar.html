@@ -4,7 +4,7 @@
                 <p>I write about my programming learning experiences. Also I go through the steps I took to create some of my projects.</p>
             </div>
             <div class="sidebar-module">
-                <h4>Archives</h4>
+                <h4><i class="fa fa-archive fa-color" aria-hidden="true"></i> Archives</h4>
                 {% regroup latest_posts_list by pub_date|date:"Y" as year_list %}
                     {% for year in year_list %}
                         
@@ -15,5 +15,10 @@
 
                     {% endfor %}
             </div>
-            <div class="sidebar-module"></div>
+            <div class="sidebar-module">
+                <h4><i class="fa fa-tags fa-color" aria-hidden="true"></i> Tags</h4>
+                {% for tag in tags %}
+                    <a class="tag" href="{% url 'blog:by_tag' tag.word %}">{{ tag.word }}</a>
+                {% endfor %}
+            </div>
         </div>

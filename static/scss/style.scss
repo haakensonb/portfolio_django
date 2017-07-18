@@ -312,8 +312,11 @@ hr {
     margin-bottom: 15px;
 }
 
-.sidebar-module-inset {
+.sidebar-module {
     padding: 15px;
+}
+
+.sidebar-module-inset {
     background-color: #f5f5f5;
     border-radius: 4px;
 }
@@ -327,7 +330,8 @@ hr {
     font-size: 16px;
     background-color: #ddd;
     border-radius: 2px;
-    margin: 3px;
+    margin: 7px 3px 7px 3px;
+    display: inline-block;
     border: none;
     text-decoration: none;
     color: #777;
