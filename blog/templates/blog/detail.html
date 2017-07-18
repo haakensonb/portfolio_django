@@ -6,11 +6,11 @@
         <h2 class="blog-post-title">{{ post.title }}</h2>
         <p class="blog-post-meta">{{ post.pub_date|date:"F j Y" }} By {{ post.author.first_name}}</p>
     </div>
-    <div>
+    <div class="blog-content">
         {{ post.body|markdown }}
     </div>
     
-    <div>
+    <div class='tags-container'>
         <p>
         {% if post.tags.all %}
         <i class="fa fa-tags fa-color fa-lg" aria-hidden="true"></i>
