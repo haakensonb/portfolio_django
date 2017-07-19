@@ -5,3 +5,5 @@ settings.py
 log.md
 media
 .sass-cache/
+node_modules/
+package-lock.json
