@@ -4,6 +4,8 @@ from django.http import HttpResponse
 
 from django.contrib import messages
 
+from django.conf import settings
+
 from .forms import ContactForm
 
 
@@ -26,7 +28,7 @@ def contact(request):
             message = form.cleaned_data['message']
             formatted_message = 'Name: {}\n\nEmail: {}\n\nMessage:{}'.format(name, email, message)
             try:
-                send_mail('New Submission', formatted_message, email, ['brandon.haakenson@gmail.com'])
+                send_mail('New Submission', formatted_message, email, [settings.EMAIL_DESTINATION])
             except BadHeaderError:
                 return HttpResponse('Invalid header found')
 
