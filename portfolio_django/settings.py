@@ -25,7 +25,10 @@ SECRET_KEY = ''
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [
+    'brandonhaakenson.me',
+    '127.0.0.1'
+]
 
 
 # Application definition
@@ -158,6 +161,12 @@ EMAIL_PORT = ''
 EMAIL_DESTINATION = ''
 
 ADMIN_URL = ''
+
+CSRF_COOKIE_SECURE = True
+SESSION_COOKIE_SECURE = True
+SECURE_CONTENT_TYPE_NOSNIFF = True
+SECURE_BROWSER_XSS_FILTER = True
+X_FRAME_OPTIONS = 'DENY'
 
 try:
     from dev_settings import *
