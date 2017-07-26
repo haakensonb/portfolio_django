@@ -7,3 +7,4 @@ node_modules/
 package-lock.json
 dev_settings.py
 settings.py
+portfolio_django.sock
